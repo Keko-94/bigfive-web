@@ -5,7 +5,7 @@ export default {
   */
   head: {
     titleTemplate: '%s - Big Five',
-    title: 'Free open-source BigFive personality traits test',
+    title: 'BigFive personality traits test',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -14,13 +14,13 @@ export default {
       { hid: 'og:title', name: 'og:title', content: 'Free open-source BigFive personality traits test' },
       { hid: 'og:description', name: 'og:description', content: 'Take a free, open-source Big Five personality test. Learn to know your personality traits and compare yourself with your partner, colleagues, friends or family' },
       { hid: 'og:type', name: 'og:type', content: 'website' },
-      { hid: 'og:url', name: 'og:url', content: 'https://bigfive-test.com' },
-      { hid: 'og:image', name: 'og:image', content: 'https://bigfive-test.com/icon.png' },
+      { hid: 'og:url', name: 'og:url', content: 'https://bigfive.neobridge.com' },
+      { hid: 'og:image', name: 'og:image', content: 'https://bigfive.neobridge.com/icon.png' },
       { hid: 'twitter:card', name: 'twitter:card', content: 'summary' },
       { hid: 'twitter:site', name: 'twitter:site', content: '@maccyber' },
       { hid: 'twitter:title', name: 'twitter:title', content: 'Free open-source BigFive personality traits test' },
       { hid: 'twitter:description', name: 'twitter:description', content: 'Take a free, open-source Big Five personality test. Learn to know your personality traits and compare yourself with your partner, colleagues, friends or family' },
-      { hid: 'twitter:image', name: 'twitter:image', content: 'https://bigfive-test.com/icon.png' },
+      { hid: 'twitter:image', name: 'twitter:image', content: 'https://bigfive.neobridge.com/icon.png' },
       { hid: 'twitter:image:alt', name: 'twitter:image:alt', content: 'BigFive logo' }
     ],
     link: [
@@ -217,8 +217,8 @@ export default {
           }
         ],
         seo: true,
-        baseUrl: 'https://bigfive-test.com',
-        defaultLocale: 'en',
+        baseUrl: 'https://bigfive.neobridge.com',
+        defaultLocale: 'fr',
         strategy: 'prefix_except_default',
         lazy: true,
         langDir: 'translations/',
@@ -232,7 +232,7 @@ export default {
     '@nuxtjs/sitemap',
     [
       'nuxt-amplitude', {
-        apiKey: '2ceb7de83dc2b9a3f73bbece2eaf0d94',
+        apiKey: '98c25a5d05f939c1d53c9207425e40d4',
         config: {
           saveEvents: true,
           includeUtm: true,
@@ -240,7 +240,7 @@ export default {
           trackingOptions: {
             country: true,
             city: true,
-            ip_address: false
+            ip_address: true
           }
         }
       }
@@ -253,7 +253,7 @@ export default {
   axios: {
   },
   sitemap: {
-    hostname: 'https://bigfive-test.com'
+    hostname: 'https://bigfive.neobridge.com'
   },
   webfontloader: {
     google: {
@@ -290,7 +290,7 @@ export default {
     }
   },
   env: {
-    API_URL: 'https://bigfive-test.com/api/' // TODO: Fix for dev environment
+    API_URL: 'https://bigfive.neobridge.com/api/' // TODO: Fix for dev environment
   },
   build: {
     extractCSS: true,
