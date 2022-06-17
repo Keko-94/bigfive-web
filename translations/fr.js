@@ -26,7 +26,7 @@ export default {
       },
       free: {
         title: 'Gratuit',
-        text: 'Le test est totalement gratuit'
+        text: 'Le test est totalement gratuit.'
       },
       scientific: {
         title: 'Scientifique',
@@ -34,11 +34,11 @@ export default {
       },
       translated: {
         title: 'Traduit',
-        text: 'Traduit dans plus de 20 langues. Aider <a href="https://b5.translations.alheimsins.net/" rel="noreferrer" target="blank">here</a>!'
+        text: 'Traduit dans plus de 20 langues. Aider <a href="https://b5.translations.alheimsins.net/" rel="noreferrer" target="blank">ici</a>!'
       }
     },
     description: {
-      top: 'Lgagnez à mieux vous connaître grâce à un test de personnalité gratuit et open source.',
+      top: 'Gagnez à mieux vous connaître grâce à un test de personnalité gratuit et open source.',
       subtop: 'The',
       subtop2: ' is the most scientifically validated and reliable psychological model to measure personality.',
       reference: `Tests and evaluation for this site is gathered from
@@ -67,7 +67,7 @@ export default {
   },
   facets: {
     openness_to_experience: {
-      title: 'Ouverture à l \'experience'
+      title: 'Ouverture à l\'experience'
     },
     conscientiousness: {
       title: 'Conscience'
@@ -124,7 +124,7 @@ export default {
     }
   },
   openness_to_experience: {
-    title: 'Ouverture à l \'experience',
+    title: 'Ouverture à l\'experience',
     seo: {
       title: 'Overview of the domain Openness To Experience.',
       description: 'Read more about the Openness To Experience domain in the b5 model'

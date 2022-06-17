@@ -42,9 +42,9 @@ export default {
         innerHTML: `{
             "@context": "http://schema.org",
             "@type" : "Organization",
-            "name" : "BigFive",
-            "url" : "https://bigfive-test.com",
-            "logo": "https://bigfive-test.com/icon.png"
+            "name" : "Neobridge",
+            "url" : "https://bigfive.neobridge.com",
+            "logo": "https://bigfive.neobridge.com/icon.png"
           }`,
         type: 'application/ld+json'
       }

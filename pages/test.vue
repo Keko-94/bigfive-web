@@ -134,7 +134,7 @@ export default {
     this.$amplitude.getInstance().logEvent('b5.test', { part: 'start' })
   },
   created () {
-    this.SET_INVENTORY()
+    this.SET_INVENTORY(this.$route.query.uuid)
   },
   methods: {
     ...mapMutations(['SET_INVENTORY', 'SET_ANSWER', 'NEXT_QUESTIONS', 'PREVIOUS_QUESTIONS', 'SET_ITEMS_PER_PAGE', 'SKIP_QUESTIONS']),

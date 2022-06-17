@@ -11,7 +11,8 @@ const schema = Joi.object({
     score: Joi.number()
   })).required(),
   timeElapsed: Joi.any(),
-  dateStamp: Joi.number()
+  dateStamp: Joi.number(),
+  uuid: Joi.string().required()
 })
 
 module.exports = data => schema.validate(data)

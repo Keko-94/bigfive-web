@@ -43,7 +43,7 @@ export default {
     choseLanguage (lang) {
       this.$amplitude.getInstance().logEvent('b5.test.language', { language: lang })
       this.SET_LANGUAGE(lang)
-      this.SET_INVENTORY()
+      this.SET_INVENTORY(this.$route.query.uuid)
     }
   }
 }

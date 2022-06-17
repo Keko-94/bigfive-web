@@ -26,9 +26,10 @@
           <v-btn
             x-large
             color="#0070f3"
-            :to="localePath('/test')"
+            :to="localePath(`/test?uuid=${uuid}`)"
             dark
             class="mt-7"
+            :disabled="uuid.length === 0"
           >
             {{ $t('frontpage.call_to_action') }}
           </v-btn>
@@ -116,26 +117,14 @@
               {{ $t('facets.neuroticism.title') }}
             </nuxt-link>
           </p>
-          <p>
-            <v-btn
-              outlined
-              :to="localePath('/compare/W3sibmFtZSI6Ik1hcnZpbiIsImlkIjoiNThhNzA2MDZhODM1YzQwMGM4YjM4ZTg0In0seyJuYW1lIjoiQXJ0aHVyIERlbnQiLCJpZCI6IjVlNTZiYTdhYjA5NjEzMDAwN2Q1ZDZkOCJ9LHsibmFtZSI6IkZvcmQgUGVyZmVjdCIsImlkIjoiNWRlYTllODhlMTA4Y2IwMDYyMTgzYWYzIn0seyJuYW1lIjoiU2xhcnRpYmFydGZhc3QiLCJpZCI6IjVlNTZiNjUwYjA5NjEzMDAwN2Q1ZDZkMCJ9XQ%3D%3D')"
-            >
-              {{ $t('frontpage.compare.action') }}
-            </v-btn>
-          </p>
-        </v-col>
-      </v-row>
-      <v-row>
-        <v-col
-          class="text-center"
-          cols="12"
-        >
-          <h2
-            style="color: #797878"
-            v-html="$t('frontpage.share')"
-          />
-          <ShareLinks />
+<!--          <p>-->
+<!--            <v-btn-->
+<!--              outlined-->
+<!--              :to="localePath('/compare/W3sibmFtZSI6Ik1hcnZpbiIsImlkIjoiNThhNzA2MDZhODM1YzQwMGM4YjM4ZTg0In0seyJuYW1lIjoiQXJ0aHVyIERlbnQiLCJpZCI6IjVlNTZiYTdhYjA5NjEzMDAwN2Q1ZDZkOCJ9LHsibmFtZSI6IkZvcmQgUGVyZmVjdCIsImlkIjoiNWRlYTllODhlMTA4Y2IwMDYyMTgzYWYzIn0seyJuYW1lIjoiU2xhcnRpYmFydGZhc3QiLCJpZCI6IjVlNTZiNjUwYjA5NjEzMDAwN2Q1ZDZkMCJ9XQ%3D%3D')"-->
+<!--            >-->
+<!--              {{ $t('frontpage.compare.action') }}-->
+<!--            </v-btn>-->
+<!--          </p>-->
         </v-col>
       </v-row>
     </Wrapper>
@@ -147,6 +136,11 @@ import { mapState } from 'vuex'
 
 export default {
   name: 'Home',
+  data () {
+    return {
+      uuid: ''
+    }
+  },
   head () {
     return {
       title: this.$t('frontpage.seo.title'),
@@ -164,6 +158,9 @@ export default {
   },
   computed: {
     ...mapState(['development'])
+  },
+  created () {
+    this.uuid = this.$route.query.uuid ?? ''
   },
   mounted () {
     this.$amplitude.getInstance().logEvent('b5.frontpage.loaded')
@@ -195,6 +192,10 @@ p {
 
 .default-width {
   max-width: 960px;
+}
+
+.v-btn.v-btn--disabled.v-btn--has-bg {
+  background-color: rgba(0, 0, 0, 0.12) !important;
 }
 
 </style>

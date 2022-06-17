@@ -1,9 +1,9 @@
 {
   "version": 2,
-  "scope": "rubynor",
+  "scope": "kbenaroche-neobridgefr",
   "alias": ["bigfive.neobridge.com"],
   "env": {
-    "MONGODB_URI": "@mongodb_uri",
+    "MONGODB_URI": "mongodb+srv://vercel-admin-user:pxtnk3N9BcDpQ7T0@cluster0.fmwo6.mongodb.net/tests",
     "MONGODB_COLLECTION": "results",
     "BASE_URL": "https://bigfive.neobridge.com"
   },

@@ -29,7 +29,8 @@ const getDefaultState = () => ({
     position: 0,
     done: false,
     invalid: false,
-    inProgress: false
+    inProgress: false,
+    uuid: null
   }
 })
 
@@ -99,9 +100,10 @@ export const mutations = {
   SET_ITEMS_PER_PAGE: (state, itemsPerPage) => {
     state.test.itemsPerPage = itemsPerPage
   },
-  SET_INVENTORY: state => {
+  SET_INVENTORY: (state, uuid) => {
     state.test.inventory = getItems(state.form.language || 'en')
     state.test.testStart = Date.now()
+    state.test.uuid = uuid
   },
   SET_ANSWER: async (state, { id, answer }) => {
     const { domain, facet } = state.test.inventory.find(q => q.id === id)
@@ -181,7 +183,8 @@ export const actions = {
         invalid: context.state.test.invalid,
         answers: Object.keys(answers).map(key => answers[key]),
         timeElapsed: elapsedTimeInSeconds(context.state.test.testStart),
-        dateStamp: Date.now()
+        dateStamp: Date.now(),
+        uuid: context.state.test.uuid
       }
 
       const { id } = await this.$axios.$post(process.env.API_URL + 'save', result)

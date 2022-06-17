@@ -7,7 +7,7 @@
     >
       <div class="toolbar-wrapper">
         <div class="d-flex align-center">
-          <nuxt-link :to="localePath('/')">
+          <nuxt-link :to="localePath(`/?uuid=${uuid}`)">
             <transition
               appear
               name="rotate"
@@ -31,48 +31,48 @@
         >
           {{ $t('toolbar.see_results') }}
         </v-btn>
-        <v-btn
-          text
-          :to="localePath('compare')"
-          class="hidden-sm-and-down text-none font-weight-regular"
-        >
-          {{ $t('toolbar.compare_with') }}
-        </v-btn>
+<!--        <v-btn-->
+<!--          text-->
+<!--          :to="localePath('compare')"-->
+<!--          class="hidden-sm-and-down text-none font-weight-regular"-->
+<!--        >-->
+<!--          {{ $t('toolbar.compare_with') }}-->
+<!--        </v-btn>-->
         <LanguageSwitcher />
-        <v-menu
-          v-model="drawer"
-          bottom
-          offset-y
-          min-width="150"
-        >
-          <template #activator="{ on }">
-            <v-btn
-              icon
-              aria-label="Expand menu"
-              v-on="on"
-              @click="drawer = !drawer"
-            >
-              <v-icon>{{ icons.mdiMenu }}</v-icon>
-            </v-btn>
-          </template>
-          <v-list nav>
-            <v-list-item>
-              <v-subheader class="text-uppercase">
-                {{ $t('common.pages') }}
-              </v-subheader>
-            </v-list-item>
-            <v-divider />
-            <v-list-item
-              v-for="item in items"
-              :key="item.title"
-              :to="localePath(item.url)"
-              link
-              class="text-none font-weight-regular pl-5 body-2"
-            >
-              {{ item.title }}
-            </v-list-item>
-          </v-list>
-        </v-menu>
+<!--        <v-menu-->
+<!--          v-model="drawer"-->
+<!--          bottom-->
+<!--          offset-y-->
+<!--          min-width="150"-->
+<!--        >-->
+<!--          <template #activator="{ on }">-->
+<!--            <v-btn-->
+<!--              icon-->
+<!--              aria-label="Expand menu"-->
+<!--              v-on="on"-->
+<!--              @click="drawer = !drawer"-->
+<!--            >-->
+<!--              <v-icon>{{ icons.mdiMenu }}</v-icon>-->
+<!--            </v-btn>-->
+<!--          </template>-->
+<!--          <v-list nav>-->
+<!--            <v-list-item>-->
+<!--              <v-subheader class="text-uppercase">-->
+<!--                {{ $t('common.pages') }}-->
+<!--              </v-subheader>-->
+<!--            </v-list-item>-->
+<!--            <v-divider />-->
+<!--            <v-list-item-->
+<!--              v-for="item in items"-->
+<!--              :key="item.title"-->
+<!--              :to="localePath(item.url)"-->
+<!--              link-->
+<!--              class="text-none font-weight-regular pl-5 body-2"-->
+<!--            >-->
+<!--              {{ item.title }}-->
+<!--            </v-list-item>-->
+<!--          </v-list>-->
+<!--        </v-menu>-->
       </div>
     </v-app-bar>
   </div>
@@ -88,10 +88,14 @@ export default {
   data: function () {
     const icons = { mdiMenu }
     return {
+      uuid: '',
       drawer: false,
       logoSrc: require('@/assets/logo.svg'),
       icons
     }
+  },
+  created () {
+    this.uuid = this.$route.query.uuid ?? ''
   },
   computed: {
     items () {
